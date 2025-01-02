@@ -1,0 +1,35 @@
+#AoC day 1 - 2024 Noah Duran
+
+#Creating empty lists to add the sorted numbers into from the data file
+list1 = []
+list2 = []
+
+#Getting the data from the input file and then cutting it up
+with open("input.txt", 'r') as inputFile:
+    data = inputFile.read()
+    lines = data.splitlines()
+    for line in lines:
+        num = line.split()
+        list1.append(int(num[0]))
+        list2.append(int(num[1]))
+
+#Part 1 took the smallest num in lists 1 and 2 and found thier difference. That's added to the running total until all numbers have been used
+def part1(list1, list2):
+    sum = 0
+    list1.sort()
+    list2.sort()
+    for a, b in zip(list1, list2):
+        sum += abs(a - b)
+    return sum
+
+#Part 2 took the num from list 1 and found how many times it was in list 2 then multiplied it by that count. This was added to a running total until all numbers in list 1 were complete.
+def part2(list1, list2):
+    common = 0
+    for a in list1:
+        commonCount = list2.count(a)
+        common += a*commonCount
+    return common
+
+print("Answer Part 1: ", part1(list1, list2))
+print("Answer Part 2: ", part2(list1, list2))
+
