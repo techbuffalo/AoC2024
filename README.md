@@ -1,2 +1,2 @@
 # AoC2024
-My attempts at finishing AoC 2024
+All of my solutions the puzzles in AoC 2024
